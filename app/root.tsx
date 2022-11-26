@@ -8,6 +8,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import styles from "./tailwind.css"
+
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "New Remix App",
@@ -29,4 +31,8 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }]
 }
