@@ -2,24 +2,65 @@
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
+import { Layout } from "~/components/layout/Layout";
 import { authenticator } from "~/services/auth.server";
 import { sessionStorage } from "~/services/session.server";
+
+import userIcon from 'images/user_icon.svg'
 
 
 // First we create our UI with the form doing a POST and the inputs with the
 // names we are going to use in the strategy
-export default function Screen() {
+export default function Login() {
   return (
-    <Form method="post">
-      <input type="email" name="email" required />
-      <input
-        type="password"
-        name="password"
-        autoComplete="current-password"
-        required
-      />
-      <button>Sign In</button>
-    </Form>
+    <>
+      <header className="relative  max-w-sm  w-full h-14 bg-PrimaryBlue-500 text-white font-roboto text-2xl flex justify-center items-center">
+        <div >
+          <img className="absolute inset-0 mt-2 ml-4" src="images/ButtonArrow.svg" alt="" />
+        </div>
+        <div>Mahall Store</div>
+      </header>
+
+      <main className="max-w-sm w-full   bg-white flex   justify-start items-center flex-col">
+
+        <section>
+          <div className="mt-4  mb-4 flex justify-center items-center">
+            <img src="images/user_icon.svg" alt="" />
+          </div>
+        </section>
+
+        <section className="w-full max-w-sm px-4">
+          <Form className="bg-white font-roboto font-bold  text-base text-gray-400  px-4  py-4 rounded-md shadow-lg " method="post">
+            <div>
+              <label className="block" htmlFor="email">
+                Login
+              </label>
+              <input className="w-full border h-12 mt-1 mb-2 rounded-lg" type="email" name="email" id="email" required />
+            </div>
+            <div>
+              <label className="block" htmlFor="password">
+                Senha
+              </label>
+              <input className="w-full border h-12 mt-1 rounded-lg" id="password" type="password" name="password" autoComplete="current-password"
+                required
+              />
+            </div>
+            <div>
+              <button className="w-full h-12 rounded-lg bg-PrimaryBlue-500 text-white mt-8" >Acessar</button>
+            </div>
+            <div>
+              <button className="w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8"  >Criar novo login</button>
+            </div>
+            <p className="text-center" >Esqueci minha senha</p>
+          </Form>
+        </section>
+      </main>
+
+      <footer className="w-full max-w-sm">
+        <div className="w-full h-12 bg-PrimaryBlue-500 font-roboto text-2xl">
+        </div>
+      </footer>
+    </>
   );
 }
 
