@@ -32,8 +32,8 @@ export default function DashboardPage() {
   const data = useLoaderData();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Mahall Protected Dashboard</h1>
-      <p>  {data?.email}   {data?.role}</p>
+      <h1 className="text-2xl text-blue-400">Welcome to Mahall Protected Dashboard</h1>
+      <p>  {data?.email}</p>
       <Form method="post">
 
         <div>

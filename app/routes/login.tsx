@@ -1,7 +1,7 @@
 // app/routes/login.tsx
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 import { Layout } from "~/components/layout/Layout";
 import { authenticator } from "~/services/auth.server";
 import { sessionStorage } from "~/services/session.server";
@@ -44,8 +44,8 @@ export default function Login() {
               <div>
                 <button className="w-full h-12 rounded-lg bg-PrimaryBlue-500 text-white mt-8" >Acessar</button>
               </div>
-              <div>
-                <button className="w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8"  >Criar novo login</button>
+              <div className="w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8  flex justify-center items-center" >
+                <Link to="/signup" >Criar novo login</Link>
               </div>
               <p className="text-center" >Esqueci minha senha</p>
             </Form>
