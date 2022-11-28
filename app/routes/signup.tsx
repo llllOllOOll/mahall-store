@@ -1,6 +1,6 @@
 import { ActionArgs, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { register } from "~/services/user.server";
+import { register } from "~/services/auth.server";
 
 export default function SignUp() {
   return (

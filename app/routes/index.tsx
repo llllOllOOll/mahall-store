@@ -1,8 +1,7 @@
-import { json, LoaderArgs } from "@remix-run/node";
+import { LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { Link } from "react-router-dom";
 import { authenticator } from "~/services/auth.server";
-import { db } from "~/services/db.server";
 
 export default function HomePage() {
   const data = useLoaderData()
@@ -13,7 +12,6 @@ export default function HomePage() {
       <p>{JSON.stringify(data)}</p>
     </>
   )
-
 }
 
 export async function loader({ request }: LoaderArgs) {
@@ -22,10 +20,3 @@ export async function loader({ request }: LoaderArgs) {
     failureRedirect: "/login",
   });
 }
-
-// export async function loader() {
-//   const data = {
-//     users: await db.user.findMany(),
-//   }
-//   return json(data)
-// }

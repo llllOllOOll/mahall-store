@@ -1,8 +1,6 @@
 // app/routes/login.tsx
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
-import { redirect } from "@remix-run/node";
 import { Form, Link } from "@remix-run/react";
-import { Layout } from "~/components/layout/Layout";
 import { authenticator } from "~/services/auth.server";
 import { sessionStorage } from "~/services/session.server";
 
