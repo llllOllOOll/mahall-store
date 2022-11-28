@@ -1,16 +1,18 @@
 // app/services/session.server.ts
-import { createCookieSessionStorage } from "@remix-run/node";
-import { AuthorizationError } from "remix-auth";
+import { createCookieSessionStorage, LoaderFunction } from "@remix-run/node";
 
-// export the whole sessionStorage object
+let secrets = process.env.COOKIE_SECRET
+if (!secrets) {
+  throw new Error("You need to set a COOKIE_SET enviroment variable.")
+}
+
 export let sessionStorage = createCookieSessionStorage({
   cookie: {
-    name: "_session", // use any name you want here
-    sameSite: "lax", // this helps with CSRF
-    path: "/", // remember to add this so the cookie will work in all routes
-    httpOnly: true, // for security reasons, make this cookie http only
-    secrets: ["s3cr3t"], // replace this with an actual secret
-    secure: process.env.NODE_ENV === "production", // enable this in prod only
+    name: "_session", 
+    path: "/", 
+    httpOnly: true, 
+    secrets: [secrets], 
+    secure: process.env.NODE_ENV === "production", 
   },
 });
 
@@ -34,7 +36,7 @@ const users : User[] = [
   {id:"5", email:'jorge@gmail.com', password:'123', role:'admin'},
 ]
 
-export async function login(email, password){
+export async function login(email:string, password:string){
   const user = users.find(u => u.email === email)
   // if (!user) {
   //   return {email:"", password:""}
