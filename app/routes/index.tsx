@@ -16,16 +16,16 @@ export default function HomePage() {
 
 }
 
-// export async function loader({ request }: LoaderArgs) {
-//   return await authenticator.isAuthenticated(request, {
-//     successRedirect: "/dashboard",
-//     failureRedirect: "/login",
-//   });
-// }
-
-export async function loader() {
-  const data = {
-    users: await db.user.findMany(),
-  }
-  return json(data)
+export async function loader({ request }: LoaderArgs) {
+  return await authenticator.isAuthenticated(request, {
+    successRedirect: "/dashboard",
+    failureRedirect: "/login",
+  });
 }
+
+// export async function loader() {
+//   const data = {
+//     users: await db.user.findMany(),
+//   }
+//   return json(data)
+// }
