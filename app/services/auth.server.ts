@@ -1,5 +1,6 @@
 // app/services/auth.server.ts
 import { User } from "@prisma/client";
+import { json } from "@remix-run/node";
 import { Authenticator, AuthorizationError } from "remix-auth";
 import { FormStrategy } from "remix-auth-form";
 import {  sessionStorage } from "~/services/session.server";
@@ -40,6 +41,12 @@ export async function login({email,password}: LoginProps) {
 }
 
 export async function register({email,password}: LoginProps) {
+  const verifyUser = await getUser(email)
+  console.log(verifyUser)
+  if (verifyUser){
+    return 'exists'
+  }
+
   const passHash = await passwordHash(password, 10);
 
   const user = await createUser({email, password:passHash, name:'',role:'admin'});

@@ -7,6 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { Layout } from "./components/layout/Layout";
+import { MainHeader } from "./components/navigation/MainHeader";
 
 import styles from "./tailwind.css"
 
@@ -24,7 +26,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <Layout>
+          <MainHeader />
+          <Outlet />
+        </Layout>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

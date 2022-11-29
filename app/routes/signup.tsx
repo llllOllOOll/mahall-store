@@ -1,42 +1,51 @@
-import { ActionArgs, redirect } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { ActionArgs, json, redirect } from "@remix-run/node";
+import { useCatch } from "@remix-run/react";
+import { z } from "zod";
+import { zx } from "zodix";
+import { SignUp } from "~/components/auth/signup";
+import { BackArrowButton } from "~/components/navigation/BackArrow";
 import { register } from "~/services/auth.server";
+import { errorAtPath } from "~/shared/utils";
 
-export default function SignUp() {
+export default function SignUpPage() {
   return (
-    <section className="w-full max-w-md px-4">
-      <Form className="bg-white font-roboto font-bold  text-base text-gray-400  px-4  py-4 rounded-md  " method="post">
-        <div>
-          <label className="block" htmlFor="email">
-            Email
-          </label>
-          <input className="w-full border h-12 mt-1 mb-2 rounded-lg px-3 " type="email" name="email" id="email" required />
-        </div>
-        <div>
-          <label className="block" htmlFor="password">
-            Senha
-          </label>
-          <input className="w-full border h-12 mt-1 rounded-lg px-3" id="password" type="password" name="password" autoComplete="current-password"
-            required
-          />
-        </div>
-        <div>
-          <button type="submit" className="w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8"  >Criar novo login</button>
-        </div>
-      </Form>
-    </section>
+    <>
+      <BackArrowButton />
+      <SignUp />
+    </>
   )
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const formData = await request.formData()
-  const email = formData.get("email")
-  const password = formData.get("password")
 
-  const user = await register({ email, password })
-  if (!user) {
-    throw new Error("Error on create new user")
+  const schema = z.object({
+    email: z.string().email({ message: "Invalid email" }),
+    password: z
+      .string()
+      .min(8, { message: "Password must be at least 8 characters" }),
+  });
+
+  const result = await zx.parseFormSafe(request, schema)
+  if (!result.success) {
+    return json({
+      success: false,
+      emailError: errorAtPath(result.error, "email"),
+      passwordError: errorAtPath(result.error, "password"),
+    })
+  }
+
+  const registerResult = await register({ email: result.data.email, password: result.data.password })
+  if (registerResult === 'exists' || !registerResult) {
+    return json({
+      success: false,
+      message: 'user already exists',
+    })
   }
 
   return redirect("/login")
+}
+
+export function CatchBoundary() {
+  const caught = useCatch()
+  return <h1 className="text-PrimaryBlue-500">Caught error: {caught.statusText}</h1>
 }
