@@ -19,3 +19,16 @@ model User {
   password  String
   role      String
 }
+
+model Contact {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  phone       String
+  city        String
+  feedback    Boolean  @default(false)
+  hired       Boolean  @default(false)
+  sentmessage Boolean  @default(false)
+  commission  Boolean  @default(false)
+}
