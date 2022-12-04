@@ -6,17 +6,17 @@ export default function ContactsForm() {
       <main className=" max-w-md w-full bg-white flex   justify-start items-center flex-col">
         <section className="flex w-full max-w-sm flex-col items-center px-4">
           <div className="mt-4  mb-4 flex justify-center items-center">
-            <img src="images/user_icon.svg" alt="" />
+            <img src="../images/user_icon.svg" alt="" />
           </div>
           <div className="relative">
             <div>
               <hr className="h-px w-80 bg-gray-200 my-4" />
             </div>
             <div className="flex w-full justify-around absolute inset-0">
-              <img className="h-8" src="images/message.svg" alt="" />
-              <img className="h-8" src="images/feedback.svg" alt="" />
-              <img className="h-8" src="images/hired.svg" alt="" />
-              <img className="h-8" src="images/comission.svg" alt="" />
+              <img className="h-8" src=" ../images/message.svg" alt="" />
+              <img className="h-8" src="../images/feedback.svg" alt="" />
+              <img className="h-8" src="../images/hired.svg" alt="" />
+              <img className="h-8" src="../images/comission.svg" alt="" />
             </div>
           </div>
         </section>

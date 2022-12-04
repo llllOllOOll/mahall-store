@@ -1,5 +1,5 @@
 import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
-import { Form, useActionData, useFetcher, useLoaderData } from "@remix-run/react";
+import { Form, Link, useActionData, useFetcher, useLoaderData } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 import invariant from "tiny-invariant";
 import { authenticator } from "~/services/auth.server";
@@ -25,7 +25,6 @@ export default function DashboardPage() {
 const UncontrolledInput = ({
   id, label, value = '', type = 'text',
 }) => {
-
   const input = useRef();
 
   useEffect(() => {
@@ -127,7 +126,9 @@ export function Dash() {
 
           <hr />
           <button title="Contact Sale" className="fixed z-90 bottom-10 right-8  w-14 h-14 rounded-full  flex justify-center items-center">
-            <img src="images/AddButton.svg" alt="" />
+            <Link to='/contacts/add' >
+              <img src="images/AddButton.svg" alt="" />
+            </Link>
           </button>
           <ul className="mt-4 mx-4">
 
