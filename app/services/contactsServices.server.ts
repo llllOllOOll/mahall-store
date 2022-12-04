@@ -1,12 +1,11 @@
-import {RequestCreateContact, contactCreateData } from "~/models/contactsData.server"
+import {RequestCreateContact, contactCreateData, contactsData } from "~/models/contactsData.server"
 
-export const getContacts = () => {
-  
+export const getContacts = async (contact:string) => {
+  if (contact === null) {
+    contact = ''
+  }
+  return  await contactsData(contact)
 }
-
-// export const getContact = (contact:string) => {
-//   return contactData(contact)
-// }
 
 
 export const createContact = (newContact:RequestCreateContact) => {
