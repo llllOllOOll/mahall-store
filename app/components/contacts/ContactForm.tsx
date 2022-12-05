@@ -1,10 +1,10 @@
 import { Form, Link, useLoaderData, useMatches } from "@remix-run/react";
+import { useState } from "react";
 
 export default function ContactsForm() {
   const contact = useLoaderData()
   const matches = useMatches()
 
-  console.log(matches)
 
   const defaultValues = contact
     ? {
@@ -18,6 +18,32 @@ export default function ContactsForm() {
       city: '',
     }
 
+  const [isActiveMessage, setIsActiveMessage] = useState(false)
+  const handleClickMessage = event => {
+    setIsActiveMessage(current => !current)
+    console.log(isActiveMessage)
+  }
+
+
+  const [isActiveFeedBack, setIsActiveFeedBack] = useState(false)
+  const handleClickFeedBack = event => {
+    setIsActiveFeedBack(current => !current)
+    console.log(isActiveFeedBack)
+  }
+
+  const [isActiveHired, setIsActiveHired] = useState(false)
+  const handleClickHired = event => {
+    setIsActiveHired(current => !current)
+    console.log(isActiveHired)
+  }
+
+  const [isActiveCommission, setIsActiveCommission] = useState(false)
+  const handleClickCommission = event => {
+    setIsActiveCommission(current => !current)
+    console.log(isActiveCommission)
+  }
+
+
   return (
     <>
       <main className=" max-w-md w-full bg-white flex   justify-start items-center flex-col">
@@ -30,10 +56,50 @@ export default function ContactsForm() {
               <hr className="h-px w-80 bg-gray-200 my-4" />
             </div>
             <div className="flex w-full justify-around absolute inset-0">
-              <img className="h-8" src=" ../images/message.svg" alt="" />
-              <img className="h-8" src="../images/feedback.svg" alt="" />
-              <img className="h-8" src="../images/hired.svg" alt="" />
-              <img className="h-8" src="../images/comission.svg" alt="" />
+              <button className={isActiveMessage ? 'border-gray-400' : ''} onClick={handleClickMessage}>
+                {isActiveMessage ?
+
+                  <img className="h-8" src=" ../images/message-blue.svg" alt="" />
+                  :
+                  <img className="h-8" src=" ../images/message.svg" alt="" />
+
+                }
+
+
+              </button>
+
+              <button onClick={handleClickFeedBack}>
+                {isActiveFeedBack ?
+
+                  <img className="h-8" src=" ../images/feedback-blue.svg" alt="" />
+                  :
+                  <img className="h-8" src=" ../images/feedback.svg" alt="" />
+
+                }
+
+              </button>
+              <button onClick={handleClickHired}>
+                {isActiveHired ?
+
+                  <img className="h-8" src=" ../images/hired-blue.svg" alt="" />
+                  :
+                  <img className="h-8" src=" ../images/hired.svg" alt="" />
+
+                }
+
+
+              </button>
+              <button onClick={handleClickCommission}>
+                {isActiveCommission ?
+
+                  <img className="h-8" src=" ../images/commission-blue.svg" alt="" />
+                  :
+                  <img className="h-8" src=" ../images/commission.svg" alt="" />
+
+                }
+
+
+              </button>
             </div>
           </div>
         </section>
