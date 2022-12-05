@@ -9,20 +9,6 @@ export const action: ActionFunction = async ({ request }) => {
   await authenticator.logout(request, { redirectTo: "/login" });
 };
 
-// export default function DashboardPage() {
-//   return (
-
-//     <>
-//       <Dash />
-//       <Form method="post">
-//         <div className="px-10">
-//           <button className="  w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8"  >Log Out</button>
-//         </div>
-//       </Form>
-//     </>
-//   );
-// }
-
 export default function Dash() {
 
   const partnersFetcher = useFetcher<typeof loader>()
@@ -53,14 +39,10 @@ export default function Dash() {
 
                 e.stopPropagation()
               }}
-
-
             >
-
               <UncontrolledInput id='name' label='Name' value={partners.name} />
             </Form>
           </div>
-
 
         </section>
         <section className="">
@@ -75,16 +57,24 @@ export default function Dash() {
 
             {partners.map((partner) => {
               return <li key={partner.id}>
-                <div className="flex mt-4 items-center">
-                  <div className="bg-purple-400 rounded-full h-10 w-10  ml-4"></div>
-                  <div className="ml-6">{partner.name}</div>
-                </div>
+                <Link to={'/contacts/' + partner.id}>
+                  <div className="flex mt-4 items-center">
+                    <div className="bg-purple-400 rounded-full h-10 w-10  ml-4"></div>
+                    <div className="ml-6">{partner.name}</div>
+                  </div>
+                </Link>
               </li>
             })}
 
           </ul>
         </section>
       </main>
+      <Form method="post">
+        <div className="px-10">
+          <button className="  w-full h-12 rounded-lg bg-PrimaryBlue-400 text-white mt-8 mb-8"  >Log Out</button>
+        </div>
+      </Form>
+
     </>)
 }
 

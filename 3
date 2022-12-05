@@ -1,0 +1,12 @@
+import ContactsForm from "~/components/contacts/ContactForm"
+import { getContactById } from "~/services/contactsServices.server"
+export default function UpdateContactPage() {
+  return (
+    <ContactsForm />
+  )
+}
+
+export async function loader({ params }) {
+  const contactId = params.id
+  return await getContactById(contactId)
+}

@@ -1,6 +1,23 @@
-import { Form, Link } from "@remix-run/react";
+import { Form, Link, useLoaderData, useMatches } from "@remix-run/react";
 
 export default function ContactsForm() {
+  const contact = useLoaderData()
+  const matches = useMatches()
+
+  console.log(matches)
+
+  const defaultValues = contact
+    ? {
+      name: contact.name,
+      phone: contact.phone,
+      city: contact.city,
+    } : {
+
+      name: '',
+      phone: '',
+      city: '',
+    }
+
   return (
     <>
       <main className=" max-w-md w-full bg-white flex   justify-start items-center flex-col">
@@ -27,13 +44,13 @@ export default function ContactsForm() {
               <label className="block" htmlFor="name">
                 Nome
               </label>
-              <input className="w-full border h-12 mt-1 mb-2 rounded-lg px-3 " type="text" name="name" id="name" required />
+              <input defaultValue={defaultValues.name} className="w-full border h-12 mt-1 mb-2 rounded-lg px-3 " type="text" name="name" id="name" required />
             </div>
             <div>
               <label className="block" htmlFor="phone">
                 Telefone
               </label>
-              <input className="w-full border h-12 mt-1 rounded-lg px-3" id="phone" type="text" name="phone" autoComplete="current-password"
+              <input defaultValue={defaultValues.phone} className="w-full border h-12 mt-1 rounded-lg px-3" id="phone" type="text" name="phone" autoComplete="current-password"
                 required
               />
             </div>
@@ -41,7 +58,7 @@ export default function ContactsForm() {
               <label className="block" htmlFor="city">
                 Cidade
               </label>
-              <input className="w-full border h-12 mt-1 rounded-lg px-3" id="city" type="text" name="city" autoComplete="current-password"
+              <input defaultValue={defaultValues.city} className="w-full border h-12 mt-1 rounded-lg px-3" id="city" type="text" name="city" autoComplete="current-password"
                 required
               />
             </div>

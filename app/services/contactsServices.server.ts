@@ -1,13 +1,21 @@
-import {RequestCreateContact, contactCreateData, contactsData } from "~/models/contactsData.server"
+import { RequestCreateContact, contactCreateData, contactsData, contactByIdData, updateContactData } from "~/models/contactsData.server"
 
-export const getContacts = async (contact:string) => {
+export const getContactById = async (id: string) => {
+  return await contactByIdData(id)
+}
+
+export const getContacts = async (contact: string) => {
   if (contact === null) {
     contact = ''
   }
-  return  await contactsData(contact)
+  return await contactsData(contact)
 }
 
 
-export const createContact = (newContact:RequestCreateContact) => {
+export const createContact = (newContact: RequestCreateContact) => {
   return contactCreateData(newContact)
+}
+
+export const updateContact = async (id, data) => {
+  await updateContactData(id, data)
 }
