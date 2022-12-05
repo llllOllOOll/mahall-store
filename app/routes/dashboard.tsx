@@ -17,13 +17,13 @@ export default function ContactsPage() {
   useEffect(() => {
     loadDataRef.current++
     console.log(loadDataRef.current)
-    if (loadDataRef.current === 2) {
-      console.log('Fetcher')
-      partnersFetcher.submit(null, {
-        method: 'get',
-        action: '/dashboard?query='
-      })
-    }
+    // if (loadDataRef.current === 1) {
+    console.log('Fetcher')
+    partnersFetcher.submit(null, {
+      method: 'get',
+      action: '/dashboard?query='
+    })
+    // }
   }, [])
 
   return (
