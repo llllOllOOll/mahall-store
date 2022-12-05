@@ -15,7 +15,7 @@ export default function Login() {
 
 export async function action({ request }: ActionArgs) {
   return await authenticator.authenticate("form", request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/dashboard?query=luna",
     failureRedirect: "/login",
   });
 };
@@ -26,7 +26,7 @@ export async function loader({ request }: LoaderArgs) {
     request.headers.get("Cookie")
   );
   return await authenticator.isAuthenticated(request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/dashboard?query=luna",
   });
 };
 

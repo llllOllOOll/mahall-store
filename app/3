@@ -12,17 +12,25 @@ export default function ContactsPage() {
 
   const partnersFetcher = useFetcher<typeof loader>()
   const partners = partnersFetcher.data?.customers ?? []
-  const loadDataRef = useRef(0)
+  const loadDataRef = useRef(false)
+  partnersFetcher.submit(null, {
+    method: 'get',
+    action: '/dashboard?query=luna'
+  })
 
-  useEffect(() => {
-    loadDataRef.current++
-    if (loadDataRef.current === 2) {
-      partnersFetcher.submit(null, {
-        method: 'get',
-        action: '/dashboard?query='
-      })
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (loadDataRef.current) return
+  //   loadDataRef.current = true
+  //   // if (partnersFetcher.state === 'idle') {
+  //   //   console.log('Ops!')
+  //   //   partnersFetcher.load(`/dashboard?=l`)
+  //   // }
+  //   console.log('Fetcher status: ', partnersFetcher.state)
+  //   partnersFetcher.submit(null, {
+  //     method: 'get',
+  //     action: '/dashboard?query=luna'
+  //   })
+  // }, [])
 
   return (
     <>
@@ -121,8 +129,10 @@ const UncontrolledInput = ({
 
 export async function searchCustomers(customer: string) {
   const data = await getContacts(customer)
+  console.log(data)
   return data
 }
+
 
 export let loader: LoaderFunction = async ({ request }) => {
   await authenticator.isAuthenticated(request, {
@@ -131,7 +141,12 @@ export let loader: LoaderFunction = async ({ request }) => {
 
   const url = new URL(request.url)
   let query = url.searchParams.get('query')
+  //invariant(typeof query === 'string', 'query is required')
+  //query ? '' : /dashboard?query=l'
+  console.log('Query: ', query)
 
+  // console.log('Query OutSide: ', query)
+  // console.log('\n\n\n')
   return json(
     { customers: await searchCustomers(query) }
   )
