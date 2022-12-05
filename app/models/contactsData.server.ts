@@ -7,6 +7,9 @@ export const contactsData = async (name: string) => {
         startsWith: name,
         mode: 'insensitive',
       }
+    },
+    orderBy: {
+      name: 'asc'
     }
   })
 }

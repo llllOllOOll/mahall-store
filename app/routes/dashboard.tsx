@@ -40,7 +40,7 @@ export default function Dash() {
                 e.stopPropagation()
               }}
             >
-              <UncontrolledInput id='name' label='Name' value={partners.name} />
+              <UncontrolledInput id='name' label='Nome' value={partners.name} />
             </Form>
           </div>
 
@@ -88,7 +88,6 @@ const UncontrolledInput = ({
   }, [value])
 
 
-  console.log('Input:', id, value)
   return (
     <>
       <div className=" relative block">
@@ -102,7 +101,7 @@ const UncontrolledInput = ({
           id={id}
           type="text" name={id} />
 
-        <span className="absolute inset-y-0 right-0 flex  justify-items-center items-center pr-3 mt-4">
+        <span className="absolute inset-y-0 right-0 flex  justify-items-center items-center pr-3 mt-6">
           <svg className="h-5 w-5 fill-black" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
             height="30" viewBox="0 0 30 30">
             <path
@@ -144,140 +143,3 @@ export let loader: LoaderFunction = async ({ request }) => {
   )
 };
 
-
-
-const partnersLimit = [
-  { id: 1, name: 'Mary ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 2, name: 'Betty ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 3, name: 'Barbara ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 4, name: 'Shirley', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 5, name: 'Patricia', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 6, name: 'Dorothy ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 7, name: 'Joan ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 8, name: 'Margaret ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 9, name: 'Nancy ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 10, name: 'Helen ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 11, name: 'Carol ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 12, name: 'Joyce ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 13, name: 'Doris', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 14, name: 'Ruth ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 15, name: 'Virginia', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 16, name: 'Marilyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 17, name: 'Elizabeth ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 18, name: 'Jean', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 19, name: 'Frances', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 20, name: 'Beverly ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 21, name: 'Lois ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 22, name: 'Alice ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 23, name: 'Donna ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 24, name: 'Martha', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 25, name: 'Dolores', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 26, name: 'Janet', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 27, name: 'Phyllis', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 28, name: 'Norma', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 29, name: 'Carolyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 30, name: 'Evelyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-]
-
-const partners = [
-  { id: 1, name: 'Mary ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 2, name: 'Betty ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 3, name: 'Barbara ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 4, name: 'Shirley', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 5, name: 'Patricia', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 6, name: 'Dorothy ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 7, name: 'Joan ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 8, name: 'Margaret ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 9, name: 'Nancy ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 10, name: 'Helen ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 11, name: 'Carol ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 12, name: 'Joyce ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 13, name: 'Doris', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 14, name: 'Ruth ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 15, name: 'Virginia', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 16, name: 'Marilyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 17, name: 'Elizabeth ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 18, name: 'Jean', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 19, name: 'Frances', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 20, name: 'Beverly ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 21, name: 'Lois ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 22, name: 'Alice ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 23, name: 'Donna ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 24, name: 'Martha', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 25, name: 'Dolores', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 26, name: 'Janet', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 27, name: 'Phyllis', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 28, name: 'Norma', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 29, name: 'Carolyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 30, name: 'Evelyn ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 31, name: 'Gloria', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 32, name: 'Anna ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 33, name: 'Marie ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 34, name: 'Ann', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 35, name: 'Mildred ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 36, name: 'Rose ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 37, name: 'Peggy', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 38, name: 'Geraldine', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 39, name: 'Catherine ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 40, name: 'Judith ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 41, name: 'Louise ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 42, name: 'Janice ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 43, name: 'Marjorie ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 44, name: 'Annie ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 45, name: 'Ruby ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 46, name: 'Eleanor ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 47, name: 'Jane ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 48, name: 'Sandra ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 49, name: 'Irene', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 50, name: 'Wanda ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 51, name: 'Elaine ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 52, name: 'June ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 53, name: 'Joanne ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 54, name: 'Rita', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 55, name: 'Florence ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 56, name: 'Delores', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 57, name: 'Lillian ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 58, name: 'Marlene', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 59, name: 'Edna', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 60, name: 'Sarah ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 61, name: 'Patsy ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 62, name: 'Lorraine ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 63, name: 'Thelma ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 64, name: 'Josephine ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 65, name: 'Juanita', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 66, name: 'Bonnie ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 67, name: 'Arlene', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 68, name: 'Gladys ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 69, name: 'Joann', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 70, name: 'Sally', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 71, name: 'Charlotte ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 72, name: 'Kathleen ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 73, name: 'Audrey ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 74, name: 'Pauline', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 75, name: 'Wilma ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 76, name: 'Sylvia', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 77, name: 'Theresa ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 78, name: 'Jacqueline ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 79, name: 'Clara ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 80, name: 'Ethel ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 81, name: 'Loretta ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 82, name: 'Grace ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 83, name: 'Sharon ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 84, name: 'Edith ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 85, name: 'Lucille', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 86, name: 'Emma ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 87, name: 'Bernice', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 88, name: 'Marion', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 89, name: 'Linda', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 90, name: 'Jo', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 91, name: 'Anne ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 92, name: 'Hazel ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 93, name: 'Roberta', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 94, name: 'Carole ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 95, name: 'Darlene ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 96, name: 'Esther ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 97, name: 'Katherine ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 98, name: 'Ellen ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 99, name: 'Laura ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-  { id: 100, name: 'Julia ', phone: '71992324545', feedback: false, hired: false, commission: false, sentmessage: false },
-]

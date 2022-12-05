@@ -1,9 +1,13 @@
 import { redirect } from "@remix-run/node"
 import ContactsForm from "~/components/contacts/ContactForm"
+import { BackArrowButton } from "~/components/navigation/BackArrow"
 import { getContactById, updateContact } from "~/services/contactsServices.server"
 export default function UpdateContactPage() {
   return (
-    <ContactsForm />
+    <>
+      <BackArrowButton />
+      <ContactsForm />
+    </>
   )
 }
 
