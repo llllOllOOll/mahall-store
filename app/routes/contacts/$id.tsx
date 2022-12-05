@@ -16,7 +16,6 @@ export async function action({ params, request }) {
   const contactId = params.id
   const formData = await request.formData()
   const contact = Object.fromEntries(formData)
-  console.log(contact)
   await updateContact(contactId, contact)
   return redirect('/dashboard')
 }

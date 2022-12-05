@@ -1,49 +1,72 @@
-import { Form, Link, useLoaderData, useMatches } from "@remix-run/react";
+import { useTransition as useNavigation, Form, Link, useLoaderData, useMatches } from "@remix-run/react";
 import { useState } from "react";
+
 
 export default function ContactsForm() {
   const contact = useLoaderData()
-  const matches = useMatches()
 
+  const navigation = useNavigation()
+  const isSubmitting = navigation.state !== 'idle'
+
+  // if (!contact) {
+  //   contact.sentmessage = false
+  //   contact.feedback = false
+  //   contact.hired = false
+  //   contact.commission = false
+  // }
 
   const defaultValues = contact
     ? {
       name: contact.name,
       phone: contact.phone,
       city: contact.city,
+      sentmessage: contact.sentmessage,
+      feedback: contact.feedback,
+      hired: contact.hired,
+      commission: contact.commission,
     } : {
-
       name: '',
       phone: '',
       city: '',
+      sentmessage: false,
+      feedback: false,
+      hired: false,
+      commission: false,
     }
 
-  const [isActiveMessage, setIsActiveMessage] = useState(false)
+  // useEffect(() => {
+  //   setIsActiveMessage(!!contact.sentmessage)
+  //
+  // }, [])
+
+
+  const [isActiveMessage, setIsActiveMessage] = useState(contact?.sentmessage ? 'undefined' : false)
+
+
   const handleClickMessage = event => {
     setIsActiveMessage(current => !current)
     console.log(isActiveMessage)
   }
 
 
-  const [isActiveFeedBack, setIsActiveFeedBack] = useState(false)
+  const [isActiveFeedBack, setIsActiveFeedBack] = useState(contact?.feedback ? 'undefined' : false)
   const handleClickFeedBack = event => {
     setIsActiveFeedBack(current => !current)
-    console.log(isActiveFeedBack)
   }
 
-  const [isActiveHired, setIsActiveHired] = useState(false)
+  const [isActiveHired, setIsActiveHired] = useState(contact?.hired ? 'undefined' : false)
   const handleClickHired = event => {
     setIsActiveHired(current => !current)
-    console.log(isActiveHired)
   }
 
-  const [isActiveCommission, setIsActiveCommission] = useState(false)
+  const [isActiveCommission, setIsActiveCommission] = useState(contact?.commission ? 'undefined' : false)
   const handleClickCommission = event => {
     setIsActiveCommission(current => !current)
-    console.log(isActiveCommission)
   }
 
 
+  console.log(contact)
+  console.log(isActiveMessage)
   return (
     <>
       <main className=" max-w-md w-full bg-white flex   justify-start items-center flex-col">
@@ -56,7 +79,7 @@ export default function ContactsForm() {
               <hr className="h-px w-80 bg-gray-200 my-4" />
             </div>
             <div className="flex w-full justify-around absolute inset-0">
-              <button className={isActiveMessage ? 'border-gray-400' : ''} onClick={handleClickMessage}>
+              <button onClick={handleClickMessage}>
                 {isActiveMessage ?
 
                   <img className="h-8" src=" ../images/message-blue.svg" alt="" />
@@ -129,8 +152,15 @@ export default function ContactsForm() {
               />
             </div>
             <div>
-              <button className="w-full h-12 rounded-lg bg-PrimaryBlue-500 text-white mt-8" >Salvar</button>
+              <button disabled={isSubmitting} className="w-full h-12 rounded-lg bg-PrimaryBlue-500 text-white mt-8" >
+                {isSubmitting ? 'Salvando...' : 'Salvar Contato'}
+              </button>
             </div>
+
+            <input type="hidden" name="sentmessage" value={isActiveMessage.toString()} />
+            <input type="hidden" name="feedback" value={isActiveFeedBack.toString()} />
+            <input type="hidden" name="hired" value={isActiveHired.toString()} />
+            <input type="hidden" name="commission" value={isActiveCommission.toString()} />
           </Form>
         </section>
       </main>
